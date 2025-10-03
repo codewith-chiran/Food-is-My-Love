@@ -1,0 +1,299 @@
+:root{
+  --bg1: #ff9a9e;
+  --bg2: #fecfef;
+  --bg3: #ff6a88;
+  --accent: #fff3;
+  --glass: rgba(255,255,255,0.08);
+  --text: #fff;
+  --shadow: rgba(0,0,0,0.25);
+  --glow: rgba(255,255,255,0.12);
+  --primary-glow: rgba(255,200,100,0.25);
+  --accent-pulse: rgba(255,200,150,0.08);
+}
+
+/* Reset + body */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
+  color:var(--text);
+  overflow:hidden;
+}
+
+/* Stage wrapper to center content */
+.stage{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  padding:28px 18px;
+}
+
+/* moving gradient background overlay for subtle animation */
+.moving-bg{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0), rgba(255,255,255,0.02));
+  pointer-events:none;
+  z-index:0;
+  animation: bgFlow 18s linear infinite;
+  mix-blend-mode: overlay;
+}
+@keyframes bgFlow{
+  0%{transform:translateX(-10%) rotate(0deg)}
+  50%{transform:translateX(10%) rotate(1deg)}
+  100%{transform:translateX(-10%) rotate(0deg)}
+}
+
+/* Top logo & title */
+.top{
+  z-index:5;
+  text-align:center;
+  margin-top:6px;
+}
+.logo-wrap{
+  width:110px;
+  height:110px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius:20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2), 0 0 30px rgba(255,150,120,0.08);
+  padding:8px;
+  transform-origin:center;
+  opacity:0;
+  animation: logoIntro 1s cubic-bezier(.22,1,.36,1) 0.4s forwards;
+}
+#logo{
+  width:86px;
+  height:86px;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+}
+@keyframes logoIntro{
+  0%{opacity:0; transform:translateY(-18px) scale(.85) rotate(-6deg)}
+  60%{transform:translateY(6px) scale(1.08) rotate(3deg)}
+  100%{opacity:1; transform:translateY(0) scale(1) rotate(0)}
+}
+
+/* Glowing title */
+#site-title{
+  margin:10px 0 0 0;
+  font-size:clamp(20px,4.6vw,36px);
+  letter-spacing:0.6px;
+  opacity:0;
+  transform:translateY(6px);
+  text-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 30px rgba(255,200,150,0.12);
+  animation: titleFade 1s ease 1s forwards;
+}
+.glow{
+  background:linear-gradient(90deg, #fff, rgba(255,255,255,0.8));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 8px 30px rgba(255,120,90,0.12));
+}
+@keyframes titleFade{
+  0%{opacity:0; transform:translateY(6px) scale(.98)}
+  100%{opacity:1; transform:translateY(0) scale(1)}
+}
+
+/* Center cinematic text */
+.center{
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:28px;
+  margin-top:18px;
+  margin-bottom:18px;
+}
+.cinema{
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:10px 18px;
+  border-radius:14px;
+  backdrop-filter: blur(6px) saturate(110%);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  box-shadow: 0 6px 30px rgba(0,0,0,0.18);
+}
+.line{
+  position:absolute;
+  font-size:clamp(16px,3.2vw,26px);
+  font-weight:600;
+  opacity:0;
+  transform:scale(.96);
+  text-align:center;
+  -webkit-text-stroke: 0.01em rgba(0,0,0,0.09);
+  color:var(--text);
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
+}
+
+/* cinematic animation class toggled by JS */
+.cinema .show{
+  animation: cinematicShow 1.1s cubic-bezier(.2,.9,.25,1) forwards;
+}
+@keyframes cinematicShow{
+  0%{opacity:0; transform:scale(.7) translateY(18px); filter:blur(2px)}
+  25%{opacity:1; transform:scale(1.02) translateY(-6px); filter:blur(0)}
+  100%{opacity:1; transform:scale(1) translateY(0)}
+}
+.cinema .hide{
+  animation: cinematicHide 0.8s ease forwards;
+}
+@keyframes cinematicHide{
+  0%{opacity:1; transform:scale(1)}
+  100%{opacity:0; transform:scale(.9) translateY(-10px)}
+}
+
+/* Icons showcase */
+.icons{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  z-index:5;
+  margin-top:18px;
+  padding:6px;
+}
+.food{
+  position:relative;
+  width:84px;
+  height:84px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18), 0 0 28px rgba(255,120,110,0.04) inset;
+  transform:scale(.86) translateY(18px);
+  opacity:0;
+  cursor:pointer;
+  transition: transform .28s cubic-bezier(.16,.8,.3,1), box-shadow .28s;
+}
+
+/* pop-in class added by JS */
+.food.pop{
+  animation: popIn .6s cubic-bezier(.2,1,.3,1) forwards;
+}
+@keyframes popIn{
+  0%{opacity:0; transform:scale(.6) translateY(18px)}
+  60%{transform:scale(1.12) translateY(-6px); opacity:1}
+  100%{transform:scale(1) translateY(0)}
+}
+
+/* emoji size and glow */
+.emoji{
+  font-size:38px;
+  transform-origin:center;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.28);
+}
+.food:hover{
+  transform:scale(1.08);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.28), 0 0 40px rgba(255,200,140,0.12);
+  filter: saturate(1.08);
+}
+
+/* mini heart on top-right */
+.mini-heart{
+  position:absolute;
+  top:8px;
+  right:8px;
+  font-size:14px;
+  transform-origin:center;
+  opacity:0;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
+  animation: heartTwinkle 1.6s linear infinite;
+}
+.food.pop .mini-heart{ opacity:1; }
+@keyframes heartTwinkle{
+  0%{transform:scale(.85) translateY(0); opacity:.85}
+  40%{transform:scale(1.18) translateY(-4px); opacity:1}
+  100%{transform:scale(.9) translateY(0); opacity:.85}
+}
+
+/* Footer */
+.footer{
+  z-index:5;
+  text-align:center;
+  width:100%;
+  padding:12px 8px;
+  opacity:0.98;
+  pointer-events:auto;
+}
+.forever{
+  font-weight:700;
+  font-size:clamp(14px,3.2vw,20px);
+  margin-bottom:6px;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,0.25));
+}
+.wavy{
+  display:inline-block;
+  transform-origin:center;
+  animation: wave 2.6s ease-in-out infinite;
+  background: linear-gradient(90deg, #fff, rgba(255,255,255,0.6));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  letter-spacing:0.4px;
+}
+@keyframes wave{
+  0%,100%{transform:translateY(0)}
+  25%{transform:translateY(-6px)}
+  50%{transform:translateY(0)}
+  75%{transform:translateY(4px)}
+}
+
+/* Copyright */
+.copyright{
+  opacity:0.9;
+  font-size:12px;
+  margin-top:6px;
+}
+
+/* Floating heart bubbles - container sits behind everything */
+#floating-hearts{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:-20vh;
+  top:0;
+  z-index:1;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+/* individual heart style created by JS */
+.fheart{
+  position:absolute;
+  font-size:18px;
+  opacity:0.9;
+  will-change: transform, opacity;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.28);
+}
+
+/* responsive tweaks */
+@media (max-width:560px){
+  .logo-wrap{width:88px;height:88px}
+  #logo{width:68px;height:68px}
+  .food{width:68px;height:68px}
+  .emoji{font-size:28px}
+  .icons{gap:12px}
+  .cinema{padding:8px 12px}
+  .forever{font-size:14px}
+}
+
+/* tiny accessibility focus */
+.food:focus{outline:3px solid rgba(255,255,255,0.12); outline-offset:4px}
+
