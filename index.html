@@ -47,7 +47,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Ultra Premium Background Effects */
         body::before {
             content: '';
             position: absolute;
@@ -63,7 +62,6 @@
             z-index: -2;
         }
 
-        /* Animated Grid Pattern */
         body::after {
             content: '';
             position: absolute;
@@ -94,7 +92,6 @@
             gap: 10px;
         }
 
-        /* Premium Logo Animation */
         .logo-container {
             margin-bottom: 5px;
             opacity: 0;
@@ -150,11 +147,8 @@
         .brand-name {
             font-size: 2rem;
             margin-top: 8px;
-            background: var(--luxury-gold);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            color: #00E5FF;
+            text-shadow: 0 0 30px #00E5FF, 0 0 60px #00E5FF;
             font-weight: 700;
             letter-spacing: 2px;
             opacity: 0;
@@ -178,7 +172,6 @@
             100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
         }
 
-        /* Ultra Premium Title Styling */
         .title-container {
             position: relative;
             margin: 5px 0;
@@ -259,7 +252,6 @@
             50% { transform: translateY(-50%) scale(1.3) rotate(180deg); opacity: 0.8; }
         }
 
-        /* Premium Text Animation */
         .text-container {
             height: 100px;
             display: flex;
@@ -300,7 +292,6 @@
             transform: scale(1.2) translateY(-30px);
         }
 
-        /* Premium Food Icons */
         .food-icons {
             display: flex;
             justify-content: center;
@@ -399,17 +390,117 @@
             100% { transform: scale(1.1) rotate(-10deg); opacity: 0.9; }
         }
 
-        /* Premium Footer */
-        .footer {
-            margin-top: 15px;
-            padding: 20px;
+        .food-descriptions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
             opacity: 0;
-            animation: premiumFadeIn 2s ease 9s forwards;
+            animation: premiumFadeIn 1.5s ease 8.5s forwards;
+            max-width: 900px;
+        }
+
+        .food-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 20px;
+            width: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .food-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .quotes-section {
+            margin: 25px 0;
+            opacity: 0;
+            animation: premiumFadeIn 1.5s ease 9s forwards;
+            max-width: 800px;
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--neon-blue);
+        }
+
+        .stats-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            opacity: 0;
+            animation: premiumFadeIn 1.5s ease 9.5s forwards;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            padding: 25px;
+            opacity: 0;
+            animation: premiumFadeIn 2s ease 10s forwards;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(25px);
             border-radius: 20px;
             width: 90%;
-            max-width: 650px;
+            max-width: 800px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.6),
@@ -484,15 +575,11 @@
         }
 
         .copyright span {
-            background: var(--luxury-purple);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            color: #00E5FF;
+            text-shadow: 0 0 20px #00E5FF;
             font-weight: 700;
         }
 
-        /* Premium Falling Food Animation */
         .falling-food {
             position: fixed;
             top: -100px;
@@ -520,32 +607,39 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .title {
                 font-size: 3rem;
             }
-
             .title::before, .title::after {
                 font-size: 2rem;
             }
-
             .text-line {
                 font-size: 2rem;
             }
-
             .food-item {
                 width: 120px;
                 height: 120px;
             }
-
             .food-icon {
                 width: 80px;
                 height: 80px;
             }
-
             .relationship-text {
                 font-size: 1.6rem;
+            }
+            .food-descriptions {
+                gap: 15px;
+            }
+            .food-card {
+                width: 170px;
+                padding: 15px;
+            }
+            .stats-section {
+                gap: 20px;
+            }
+            .stat-item {
+                padding: 12px 20px;
             }
         }
 
@@ -553,32 +647,37 @@
             .title {
                 font-size: 2.5rem;
             }
-
             .title::before, .title::after {
                 font-size: 1.5rem;
             }
-
             .text-line {
                 font-size: 1.6rem;
                 padding: 15px 25px;
             }
-
             .food-icons {
                 gap: 15px;
             }
-
             .food-item {
                 width: 100px;
                 height: 100px;
             }
-
             .food-icon {
                 width: 70px;
                 height: 70px;
             }
-
             .relationship-text {
                 font-size: 1.3rem;
+            }
+            .food-descriptions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .food-card {
+                width: 90%;
+            }
+            .stats-section {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -623,6 +722,53 @@
         </div>
     </div>
 
+    <div class="food-descriptions">
+        <div class="food-card">
+            <h3>🍕 Pizza Love</h3>
+            <p>The perfect cheese stretch that never breaks my heart. Hot, cheesy, and always there for me!</p>
+        </div>
+        <div class="food-card">
+            <h3>🍫 Chocolate Bliss</h3>
+            <p>Sweet moments of pure happiness that melt away all my worries. My sweet escape!</p>
+        </div>
+        <div class="food-card">
+            <h3>☕ Coffee Dates</h3>
+            <p>Warm conversations with my favorite cup that never judges my morning mood. Perfect companion!</p>
+        </div>
+        <div class="food-card">
+            <h3>🍦 Ice Cream Dreams</h3>
+            <p>Cold, sweet, and always ready to cheer me up. The coolest relationship ever!</p>
+        </div>
+    </div>
+
+    <div class="quotes-section">
+        <div class="quote">
+            Pizza is my soulmate - it's cheesy, hot, and always delivers!
+        </div>
+        <div class="quote">
+            Coffee understands me better than most people - strong, warm, and essential!
+        </div>
+    </div>
+
+    <div class="stats-section">
+        <div class="stat-item">
+            <span class="stat-number">1000+</span>
+            <span class="stat-label">Slices of Pizza</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Coffee Cups</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Food Love</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Breakups</span>
+        </div>
+    </div>
+
     <div class="footer">
         <div class="relationship-text">Forever in a relationship with Pizza 🍕 & Coffee ☕</div>
         <div class="copyright">
@@ -636,37 +782,30 @@
 </div>
 
 <script>
-    // Text animation sequence
     document.addEventListener('DOMContentLoaded', function() {
         const text1 = document.getElementById('text1');
         const text2 = document.getElementById('text2');
 
-        // First text appears
         setTimeout(() => {
             text1.classList.add('active');
         }, 2500);
 
-        // First text fades out, second appears
         setTimeout(() => {
             text1.classList.remove('active');
             text1.classList.add('fade-out');
-
             setTimeout(() => {
                 text2.classList.add('active');
             }, 800);
         }, 4500);
 
-        // Second text fades out
         setTimeout(() => {
             text2.classList.remove('active');
             text2.classList.add('fade-out');
         }, 6500);
 
-        // Create falling food animation
         createFallingFood();
     });
 
-    // Create falling food animation
     function createFallingFood() {
         const fallingContainer = document.getElementById('fallingFoods');
         const foodItems = ['🍕', '🍫', '☕', '🍦', '🎀', '✨', '🌟', '💖'];
@@ -676,33 +815,27 @@
             food.classList.add('falling-food');
             food.innerHTML = foodItems[Math.floor(Math.random() * foodItems.length)];
 
-            // Random position
             const leftPos = Math.random() * 100;
             food.style.left = `${leftPos}vw`;
 
-            // Random animation duration
             const duration = 8 + Math.random() * 12;
             food.style.animationDuration = `${duration}s`;
 
-            // Random size
             const size = 20 + Math.random() * 40;
             food.style.fontSize = `${size}px`;
 
-            // Random color tint
             const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             food.style.color = randomColor;
 
             fallingContainer.appendChild(food);
 
-            // Remove after animation
             setTimeout(() => {
                 food.remove();
             }, duration * 1000);
         }, 400);
     }
 
-    // Add interactive effects
     document.querySelectorAll('.food-item').forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.2) rotate(8deg)';
@@ -725,6 +858,16 @@
 
         item.addEventListener('mouseleave', function() {
             this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+
+    document.querySelectorAll('.food-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
         });
     });
 </script>
