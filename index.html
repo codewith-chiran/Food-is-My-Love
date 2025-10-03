@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food is My Love | Premium Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+            --chrome-silver: linear-gradient(135deg, #E8E8E8, #C0C0C0, #A0A0A0);
+            --neon-blue: #00E5FF;
+            --luxury-purple: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            --luxury-gold: linear-gradient(135deg, #f6d365, #fda085, #ffecd2);
+            --luxury-pink: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffafaf);
+            --luxury-blue: linear-gradient(135deg, #4facfe, #00f2fe, #00ffea);
+            --reflection: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), transparent);
+        }
+
+        body {
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e, #1a1a2e, #16213e);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Ultra Premium Background Effects */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79, 172, 254, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 60% 60%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        /* Animated Grid Pattern */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Premium Logo Animation */
+        .logo-container {
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: premiumFadeIn 2s ease forwards, metallicGlow 3s ease-in-out 2s infinite alternate;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--luxury-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow:
+                0 0 40px rgba(255, 215, 0, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 0 3px rgba(255, 255, 255, 0.2),
+                0 0 0 6px rgba(0, 0, 0, 0.3);
+            border: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--reflection);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+
+        .logo img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.7));
+            z-index: 2;
+            position: relative;
+        }
+
+        .brand-name {
+            font-size: 2rem;
+            margin-top: 8px;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            font-weight: 700;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes premiumFadeIn {
+            from { opacity: 0; transform: translateY(-30px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes metallicGlow {
+            0% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6)); }
+            100% { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        /* Ultra Premium Title Styling */
+        .title-container {
+            position: relative;
+            margin: 5px 0;
+            opacity: 0;
+            animation: premiumFadeIn 2s ease 1s forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #ff00ff, #ff6b6b);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow:
+                0 0 30px rgba(255, 107, 107, 0.8),
+                0 0 60px rgba(255, 107, 107, 0.6);
+            font-weight: 900;
+            letter-spacing: 3px;
+            position: relative;
+            padding: 15px 0;
+            font-family: 'Dancing Script', cursive;
+            animation: rainbowGlow 3s ease-in-out infinite, floatTitle 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .title::before, .title::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            animation: sparkle 2s infinite;
+            filter: drop-shadow(0 0 10px gold);
+        }
+
+        .title::before {
+            left: -60px;
+        }
+
+        .title::after {
+            right: -60px;
+        }
+
+        .title-subtext {
+            font-size: 1.3rem;
+            margin-top: 5px;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes rainbowGlow {
+            0%, 100% {
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                background-position: 100% 50%;
+                filter: hue-rotate(180deg);
+            }
+        }
+
+        @keyframes floatTitle {
+            0%, 100% { transform: translateY(0) rotate(-1deg) scale(1); }
+            50% { transform: translateY(-8px) rotate(1deg) scale(1.02); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-50%) scale(1.3) rotate(180deg); opacity: 0.8; }
+        }
+
+        /* Premium Text Animation */
+        .text-container {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .text-line {
+            position: absolute;
+            font-size: 2.5rem;
+            font-weight: 700;
+            opacity: 0;
+            transform: scale(0.8) translateY(30px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 20px 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+        }
+
+        .text-line.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .text-line.fade-out {
+            opacity: 0;
+            transform: scale(1.2) translateY(-30px);
+        }
+
+        /* Premium Food Icons */
+        .food-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 10px 0;
+            opacity: 0;
+            animation: premiumFadeIn 1.5s ease 6.5s forwards;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .food-item {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.7),
+                inset 0 0 25px rgba(255, 255, 255, 0.4),
+                0 0 0 3px rgba(255, 255, 255, 0.2),
+                0 0 0 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0) rotate(-180deg);
+            animation: premiumPopIn 0.8s ease forwards;
+            cursor: pointer;
+            overflow: hidden;
+            background: var(--luxury-gold);
+        }
+
+        .food-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--reflection);
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .food-item:hover::before {
+            opacity: 1;
+        }
+
+        .food-item:nth-child(1) { animation-delay: 7s; background: var(--luxury-pink); }
+        .food-item:nth-child(2) { animation-delay: 7.4s; background: linear-gradient(135deg, #8B4513, #A0522D, #D2691E); }
+        .food-item:nth-child(3) { animation-delay: 7.8s; background: var(--luxury-blue); }
+        .food-item:nth-child(4) { animation-delay: 8.2s; background: var(--luxury-purple); }
+
+        @keyframes premiumPopIn {
+            0% { transform: scale(0) rotate(-180deg); }
+            70% { transform: scale(1.15) rotate(15deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .food-item:hover {
+            transform: scale(1.2) rotate(8deg);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.8),
+                inset 0 0 35px rgba(255, 255, 255, 0.5),
+                0 0 30px var(--neon-blue);
+        }
+
+        .food-icon {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+            z-index: 2;
+            position: relative;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+        }
+
+        .bow {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 24px;
+            animation: premiumTwinkle 2s infinite alternate;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            z-index: 3;
+            filter: drop-shadow(0 0 8px #ff6b6b);
+        }
+
+        @keyframes premiumTwinkle {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+            50% { transform: scale(1.3) rotate(15deg); opacity: 1; }
+            100% { transform: scale(1.1) rotate(-10deg); opacity: 0.9; }
+        }
+
+        /* Premium Footer */
+        .footer {
+            margin-top: 15px;
+            padding: 20px;
+            opacity: 0;
+            animation: premiumFadeIn 2s ease 9s forwards;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 650px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .relationship-text {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: premiumWave 4s ease-in-out infinite;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        @keyframes premiumWave {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        .copyright {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .copyright-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--luxury-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                0 0 15px rgba(255, 215, 0, 0.6),
+                inset 0 0 8px rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .copyright-logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--reflection);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+
+        .copyright-logo img {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+            border-radius: 50%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .copyright span {
+            background: var(--luxury-purple);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            font-weight: 700;
+        }
+
+        /* Premium Falling Food Animation */
+        .falling-food {
+            position: fixed;
+            top: -100px;
+            font-size: 30px;
+            animation: fallDown linear infinite;
+            z-index: -1;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+            pointer-events: none;
+        }
+
+        @keyframes fallDown {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .title::before, .title::after {
+                font-size: 2rem;
+            }
+
+            .text-line {
+                font-size: 2rem;
+            }
+
+            .food-item {
+                width: 120px;
+                height: 120px;
+            }
+
+            .food-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .relationship-text {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .title::before, .title::after {
+                font-size: 1.5rem;
+            }
+
+            .text-line {
+                font-size: 1.6rem;
+                padding: 15px 25px;
+            }
+
+            .food-icons {
+                gap: 15px;
+            }
+
+            .food-item {
+                width: 100px;
+                height: 100px;
+            }
+
+            .food-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .relationship-text {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="falling-foods" id="fallingFoods"></div>
+
+<div class="container">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/codewith-chiran/food_as_gf/main/codewithchiran-logo.png" alt="CodeWithChiran Logo">
+        </div>
+        <div class="brand-name">CodeWithChiran</div>
+    </div>
+
+    <div class="title-container">
+        <div class="title">Food is My Love</div>
+        <div class="title-subtext">A Delicious Journey of Passion</div>
+    </div>
+
+    <div class="text-container">
+        <div class="text-line" id="text1">Who needs a girlfriend? 😂</div>
+        <div class="text-line" id="text2">When I already have...</div>
+    </div>
+
+    <div class="food-icons">
+        <div class="food-item">
+            <img src="https://raw.githubusercontent.com/codewith-chiran/food_as_gf/main/pizza-icon.png" alt="Pizza" class="food-icon">
+            <div class="bow">🎀</div>
+        </div>
+        <div class="food-item">
+            <img src="https://raw.githubusercontent.com/codewith-chiran/food_as_gf/main/chocolate-icon.png" alt="Chocolate" class="food-icon">
+            <div class="bow">🎀</div>
+        </div>
+        <div class="food-item">
+            <img src="https://raw.githubusercontent.com/codewith-chiran/food_as_gf/main/coffee-icon.png" alt="Coffee" class="food-icon">
+            <div class="bow">🎀</div>
+        </div>
+        <div class="food-item">
+            <img src="https://raw.githubusercontent.com/codewith-chiran/food_as_gf/main/icecream-icon.png" alt="Ice Cream" class="food-icon">
+            <div class="bow">🎀</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="relationship-text">Forever in a relationship with Pizza 🍕 & Coffee ☕</div>
+        <div class="copyright">
+            Made with ❤️ by
+            <div class="copyright-logo">
+                <img src="https://raw.githubusercontent.com/codewith-chiran/food_as_gf/main/codewithchiran-logo.png" alt="CodeWithChiran Logo">
+            </div>
+            <span>CodeWithChiran</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Text animation sequence
+    document.addEventListener('DOMContentLoaded', function() {
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+
+        // First text appears
+        setTimeout(() => {
+            text1.classList.add('active');
+        }, 2500);
+
+        // First text fades out, second appears
+        setTimeout(() => {
+            text1.classList.remove('active');
+            text1.classList.add('fade-out');
+
+            setTimeout(() => {
+                text2.classList.add('active');
+            }, 800);
+        }, 4500);
+
+        // Second text fades out
+        setTimeout(() => {
+            text2.classList.remove('active');
+            text2.classList.add('fade-out');
+        }, 6500);
+
+        // Create falling food animation
+        createFallingFood();
+    });
+
+    // Create falling food animation
+    function createFallingFood() {
+        const fallingContainer = document.getElementById('fallingFoods');
+        const foodItems = ['🍕', '🍫', '☕', '🍦', '🎀', '✨', '🌟', '💖'];
+
+        setInterval(() => {
+            const food = document.createElement('div');
+            food.classList.add('falling-food');
+            food.innerHTML = foodItems[Math.floor(Math.random() * foodItems.length)];
+
+            // Random position
+            const leftPos = Math.random() * 100;
+            food.style.left = `${leftPos}vw`;
+
+            // Random animation duration
+            const duration = 8 + Math.random() * 12;
+            food.style.animationDuration = `${duration}s`;
+
+            // Random size
+            const size = 20 + Math.random() * 40;
+            food.style.fontSize = `${size}px`;
+
+            // Random color tint
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            food.style.color = randomColor;
+
+            fallingContainer.appendChild(food);
+
+            // Remove after animation
+            setTimeout(() => {
+                food.remove();
+            }, duration * 1000);
+        }, 400);
+    }
+
+    // Add interactive effects
+    document.querySelectorAll('.food-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.2) rotate(8deg)';
+            const sparkles = document.createElement('div');
+            sparkles.innerHTML = '✨';
+            sparkles.style.position = 'absolute';
+            sparkles.style.top = '50%';
+            sparkles.style.left = '50%';
+            sparkles.style.transform = 'translate(-50%, -50%)';
+            sparkles.style.fontSize = '50px';
+            sparkles.style.opacity = '0';
+            sparkles.style.animation = 'sparkle 1s forwards';
+            sparkles.style.filter = 'drop-shadow(0 0 10px gold)';
+            this.appendChild(sparkles);
+
+            setTimeout(() => {
+                sparkles.remove();
+            }, 1000);
+        });
+
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+</script>
+</body>
+</html>
