@@ -89,7 +89,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 0;
         }
 
         .logo-container {
@@ -260,6 +260,13 @@
             margin: 5px 0;
             position: relative;
             width: 100%;
+            transition: all 0.8s ease;
+        }
+
+        .text-container.collapsed {
+            height: 0;
+            margin: 0;
+            overflow: hidden;
         }
 
         .text-line {
@@ -297,11 +304,16 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 25px;
-            margin: 10px 0;
+            margin: 0;
             opacity: 0;
             animation: premiumFadeIn 1.5s ease 6.5s forwards;
             width: 100%;
             max-width: 700px;
+            transition: margin-top 0.8s ease;
+        }
+
+        .food-icons.adjusted {
+            margin-top: 10px;
         }
 
         .food-item {
@@ -698,12 +710,12 @@
         <div class="title-subtext">A Delicious Journey of Passion</div>
     </div>
 
-    <div class="text-container">
+    <div class="text-container" id="textContainer">
         <div class="text-line" id="text1">Who needs a girlfriend? 😂</div>
         <div class="text-line" id="text2">When I already have...</div>
     </div>
 
-    <div class="food-icons">
+    <div class="food-icons" id="foodIcons">
         <div class="food-item">
             <img src="https://i.ibb.co/QFps81pW/pizza-icon.png" alt="Pizza" class="food-icon">
             <div class="bow">🎀</div>
@@ -785,6 +797,8 @@
     document.addEventListener('DOMContentLoaded', function() {
         const text1 = document.getElementById('text1');
         const text2 = document.getElementById('text2');
+        const textContainer = document.getElementById('textContainer');
+        const foodIcons = document.getElementById('foodIcons');
 
         setTimeout(() => {
             text1.classList.add('active');
@@ -801,6 +815,12 @@
         setTimeout(() => {
             text2.classList.remove('active');
             text2.classList.add('fade-out');
+            
+            // Collapse the text container completely and adjust food icons
+            setTimeout(() => {
+                textContainer.classList.add('collapsed');
+                foodIcons.classList.add('adjusted');
+            }, 800);
         }, 6500);
 
         createFallingFood();
